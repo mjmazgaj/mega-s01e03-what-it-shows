@@ -1,0 +1,57 @@
+---
+layout: runbook
+title: '#4471 · two causes, two tickets'
+owner: mjmazgaj
+status: open
+reviewed: 2026-10-29
+signature: mjmazgaj
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+</script>
+
+The [#4471 page](/kb/incidents/4471) says one issue with one fix queued. Its own table says
+otherwise. This page splits the ticket by cause and points each cause to its own ticket.
+
+<Callout kind="warn">
+#4471 is two bugs. A parser fix closes only one of them.
+</Callout>
+
+## What #4471 holds
+
+<CauseTable ticket={4471} />
+
+Every count above comes from the export at render time, so it stays true as the desk merges more
+reports. The cause comes from the reporter's tenant: its locale, and the booking form it runs
+(`causes.ts`). The intake tag is a guess from the reporter's browser. The "tagged as" column shows
+how far it is from the cause, so do not count by tag.
+
+## One ticket per cause
+
+| cause | ticket | what breaks |
+| --- | --- | --- |
+| `parser` | [#1](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/1) | The shared parser reads every date month first, and every tenant on file writes the day first. |
+| `hint` | [#2](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/2) | The booking-v3 form shows `MM/DD/YYYY` under its date field, then reads the date day first. Only reports sent through that form. |
+
+The report counts are in the table above and in each ticket.
+
+## The one-day moves
+
+The note under the table lists reports the desk read as a one-day move (`desk-notes.json`). The kb
+files them by tenant, under `parser`, and #1 counts them there. Their text describes a day lost,
+not a day and month swapped. Check them on their own before #1 is closed.
+
+## Why it was merged as one
+
+[Decision 0001](/kb/decisions/0001-dedupe-by-subject) merges reports whose subject lines match.
+Both bugs produce the same subjects ("wrong day", "date is wrong"), so the subject rule put two
+causes in one ticket. Engineering then saw one bug and queued one fix.
+
+0001 is accepted, so it stays as it is. Its review date is past the stale limit. A new decision
+record should replace it with a rule that merges on cause (`sameCause` in `causes.ts`), and the
+[triage page](/kb/triage/dedupe) should point to that new record.
+
+<RenderStamp {signature} />
