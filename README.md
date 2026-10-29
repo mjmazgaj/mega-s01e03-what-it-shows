@@ -15,7 +15,7 @@ Engineering closed #4471 on 5 October.
 
 - Source: [`support-kb/src/routes/kb/incidents/4471/causes/+page.svx`](support-kb/src/routes/kb/incidents/4471/causes/+page.svx)
 - As the desk sees it: [`rendered/4471-causes.html`](rendered/4471-causes.html) and [`rendered/4471-causes.png`](rendered/4471-causes.png)
-- Signed `mjmazgaj`, desk ref `DR-SGMX-075R`
+- Signed with the course ticket (frontmatter `signature`), desk ref `DR-200Q-3NJ2`
 
 `support-kb/` is the kb export as it came from the course, with only the new page added.
 
