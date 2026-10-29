@@ -4,10 +4,12 @@ The support desk merged 412 date reports into ticket #4471 and marked it as one 
 
 ## Tickets
 
-| cause | ticket | reports |
-| --- | --- | --- |
-| `parser`: the shared parser reads day-first dates month first | [#1](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/1) | 379 |
-| `hint`: the booking-v3 form hint says MM/DD, and the form reads the date day first | [#2](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/2) | 33 |
+| cause | ticket | reports | outcome |
+| --- | --- | --- | --- |
+| `parser`: the shared parser reads day-first dates month first | [#1](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/1) | 379 | fixed: `fix(dates): parse dd/mm for eu locales` (closed, completed) |
+| `hint`: the booking-v3 form hint says MM/DD, and the form reads the date day first | [#2](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/2) | 33 | won't fix: booking-v3 form retired (closed, not planned) |
+
+Engineering closed #4471 on 5 October.
 
 ## Page
 

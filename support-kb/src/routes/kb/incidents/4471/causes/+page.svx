@@ -2,7 +2,7 @@
 layout: runbook
 title: '#4471 · two causes, two tickets'
 owner: mjmazgaj
-status: open
+status: closed
 reviewed: 2026-10-29
 signature: mjmazgaj
 ---
@@ -17,7 +17,7 @@ The [#4471 page](/kb/incidents/4471) says one issue with one fix queued. Its own
 otherwise. This page splits the ticket by cause and points each cause to its own ticket.
 
 <Callout kind="warn">
-#4471 is two bugs. A parser fix closes only one of them.
+#4471 was two bugs. The parser fix closed only one of them; the other ended when its form was retired.
 </Callout>
 
 ## What #4471 holds
@@ -38,11 +38,19 @@ how far it is from the cause, so do not count by tag.
 
 The report counts are in the table above and in each ticket.
 
+## Outcome
+
+Engineering closed #4471 on 5 October:
+
+- `parser`: fixed by `fix(dates): parse dd/mm for eu locales`. [#1](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/1) is closed as completed.
+- `hint`: won't fix, because the booking-v3 form is retired. [#2](https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/2) is closed as not planned.
+
 ## The one-day moves
 
 The note under the table lists reports the desk read as a one-day move (`desk-notes.json`). The kb
-files them by tenant, under `parser`, and #1 counts them there. Their text describes a day lost,
-not a day and month swapped. Check them on their own before #1 is closed.
+files them by tenant, under `parser`, and #1 counted them there. Their text describes a day lost,
+not a day and month swapped, so the parser fix may not cover them. If reports like these keep
+coming after the fix, open a ticket for them.
 
 ## Why it was merged as one
 

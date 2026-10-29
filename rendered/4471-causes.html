@@ -50,7 +50,7 @@
     <h1>#4471 · two causes, two tickets</h1>
     <p class="meta">
       <span>owner <b>mjmazgaj</b></span>
-      <span class="status open">open</span>
+      <span class="status closed">closed</span>
       <span>reviewed 2026-10-29 · 0 days ago</span>
     </p>
   </header>
@@ -58,7 +58,7 @@
     <p>The <a href="/kb/incidents/4471">#4471 page</a> says one issue with one fix queued. Its own table says
     otherwise. This page splits the ticket by cause and points each cause to its own ticket.</p>
 
-    <aside class="warn">#4471 is two bugs. A parser fix closes only one of them.</aside>
+    <aside class="warn">#4471 was two bugs. The parser fix closed only one of them; the other ended when its form was retired.</aside>
 
     <h2>What #4471 holds</h2>
 
@@ -95,11 +95,20 @@
 
     <p>The report counts are in the table above and in each ticket.</p>
 
+    <h2>Outcome</h2>
+
+    <p>Engineering closed #4471 on 5 October:</p>
+    <ul>
+      <li><code>parser</code>: fixed by <code>fix(dates): parse dd/mm for eu locales</code>. <a href="https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/1">#1</a> is closed as completed.</li>
+      <li><code>hint</code>: won't fix, because the booking-v3 form is retired. <a href="https://github.com/mjmazgaj/mega-s01e03-what-it-shows/issues/2">#2</a> is closed as not planned.</li>
+    </ul>
+
     <h2>The one-day moves</h2>
 
     <p>The note under the table lists reports the desk read as a one-day move (<code>desk-notes.json</code>). The kb
-    files them by tenant, under <code>parser</code>, and #1 counts them there. Their text describes a day lost,
-    not a day and month swapped. Check them on their own before #1 is closed.</p>
+    files them by tenant, under <code>parser</code>, and #1 counted them there. Their text describes a day lost,
+    not a day and month swapped, so the parser fix may not cover them. If reports like these keep
+    coming after the fix, open a ticket for them.</p>
 
     <h2>Why it was merged as one</h2>
 
